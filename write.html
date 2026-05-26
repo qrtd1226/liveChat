@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Private Writing Desk</title>
+    <link rel="stylesheet" href="write.css">
+</head>
+<body class="write-page">
+
+    <main class="write-shell">
+
+        <section class="write-paper">
+
+            <header class="write-header">
+                <section class="private-info left-info">
+                    <div class="lock-icon">▣</div>
+                    <div>
+                        <strong>PRIVATE DESK</strong>
+                        <p>Your words stay private until you decide.</p>
+                    </div>
+                </section>
+
+                <section class="write-masthead">
+                    <p>RETRO ONLINE BOARD</p>
+                    <h1>LIVE CHAT GAZETTE</h1>
+                    <span>PRIVATE WRITING DESK</span>
+                </section>
+
+                <section class="private-info right-info">
+                    <div>
+                        <strong>EDITION PRIVATE</strong>
+                        <p>Write. Reflect. Share when ready.</p>
+                    </div>
+                </section>
+            </header>
+
+            <section class="write-meta">
+                <span id="writeDate">TODAY</span>
+                <span>EST. 2025</span>
+                <span id="writeServer">Global Server</span>
+            </section>
+
+            <section class="write-layout">
+
+                <section class="editor-area">
+
+                    <section class="field-block">
+                        <label for="headlineInput">1. MAIN HEADLINE</label>
+
+                        <div class="input-wrap large-input-wrap">
+                            <input
+                                type="text"
+                                id="headlineInput"
+                                maxlength="120"
+                                placeholder="Write your headline here..."
+                            >
+                            <span id="headlineCount">0 / 120</span>
+                        </div>
+                    </section>
+
+                    <section class="field-block">
+                        <label for="descriptionInput">2. SUB-HEADLINE / DESCRIPTION</label>
+
+                        <div class="input-wrap">
+                            <input
+                                type="text"
+                                id="descriptionInput"
+                                maxlength="200"
+                                placeholder="Add a short sub-headline or description..."
+                            >
+                            <span id="descriptionCount">0 / 200</span>
+                        </div>
+                    </section>
+
+                    <section class="body-photo-row">
+
+                        <section class="article-body-box">
+                            <label for="bodyInput">3. ARTICLE BODY</label>
+
+                            <div class="toolbar">
+                                <button type="button">B</button>
+                                <button type="button"><i>I</i></button>
+                                <button type="button"><u>U</u></button>
+                                <button type="button">“</button>
+                                <button type="button">☰</button>
+                                <button type="button">↶</button>
+                                <button type="button">↷</button>
+                            </div>
+
+                            <textarea
+                                id="bodyInput"
+                                placeholder="Start writing your story..."
+                            ></textarea>
+
+                            <div class="word-count" id="wordCount">0 WORDS</div>
+                        </section>
+
+                        <aside class="photo-column">
+
+                            <section class="photo-box">
+                                <strong>FEATURE PHOTO</strong>
+
+                                <div class="photo-preview-box" id="featurePhotoBox">
+                                    <button class="photo-arrow left" type="button" id="featurePrevButton">‹</button>
+
+                                    <div class="photo-placeholder" id="featurePhotoPlaceholder">
+                                        <span>IMAGE AREA</span>
+                                        <small>Add a photo later</small>
+                                    </div>
+
+                                    <img class="photo-preview-image" id="featurePhotoPreview" alt="" hidden>
+
+                                    <button class="photo-arrow right" type="button" id="featureNextButton">›</button>
+                                </div>
+
+                                <div class="photo-action-row">
+                                    <button class="photo-img-button" type="button" id="featureClickButton">
+                                        img
+                                    </button>
+
+                                    <div class="photo-count-text" id="featurePhotoCount">0 / 15</div>
+                                </div>
+
+                                <input type="file" id="featurePhotoInput" accept="image/*" multiple hidden>
+                            </section>
+
+                            <section class="photo-box">
+                                <strong>SECONDARY PHOTO</strong>
+
+                                <div class="photo-preview-box secondary" id="secondaryPhotoBox">
+                                    <button class="photo-arrow left" type="button" id="secondaryPrevButton">‹</button>
+
+                                    <div class="photo-placeholder small" id="secondaryPhotoPlaceholder">
+                                        <span>IMAGE AREA</span>
+                                        <small>Optional</small>
+                                    </div>
+
+                                    <img class="photo-preview-image" id="secondaryPhotoPreview" alt="" hidden>
+
+                                    <button class="photo-arrow right" type="button" id="secondaryNextButton">›</button>
+                                </div>
+
+                                <div class="photo-action-row">
+                                    <button class="photo-img-button" type="button" id="secondaryClickButton">
+                                        img
+                                    </button>
+
+                                    <div class="photo-count-text" id="secondaryPhotoCount">0 / 5</div>
+                                </div>
+
+                                <input type="file" id="secondaryPhotoInput" accept="image/*" multiple hidden>
+                            </section>
+
+                        </aside>
+
+                    </section>
+
+                </section>
+
+                <aside class="write-sidebar">
+
+                    <section class="side-note-box">
+                        <h3>NOTES (PRIVATE)</h3>
+                        <textarea
+                            id="noteInput"
+                            maxlength="500"
+                            placeholder="Jot down private notes, ideas, reminders, or reflections..."
+                        ></textarea>
+                        <div class="note-count" id="noteCount">0 / 500</div>
+                    </section>
+
+                    <section class="status-box">
+                        <h3>DRAFT STATUS</h3>
+
+                        <div class="status-row">
+                            <span>STATUS</span>
+                            <strong>Draft</strong>
+                        </div>
+
+                        <div class="status-row">
+                            <span>LAST SAVED</span>
+                            <strong id="lastSavedText">Not saved</strong>
+                        </div>
+
+                        <div class="status-row">
+                            <span>VISIBILITY</span>
+                            <strong id="statusVisibilityText">Private</strong>
+                        </div>
+                    </section>
+
+                    <section class="status-box">
+                        <h3>WRITING MODE</h3>
+
+                        <div class="status-row">
+                            <span>PHOTO</span>
+                            <strong>Optional</strong>
+                        </div>
+
+                        <div class="status-row">
+                            <span>POST TYPE</span>
+                            <strong>Story</strong>
+                        </div>
+
+                        <div class="status-row">
+                            <span>MAIN PAGE</span>
+                            <strong>Enabled</strong>
+                        </div>
+                    </section>
+
+                </aside>
+
+            </section>
+
+            <footer class="write-footer">
+                <div class="footer-note">
+                    <strong>YOUR STORY. YOUR CONTROL.</strong>
+                    <p>You choose who can read it.</p>
+                </div>
+
+                <div class="footer-actions">
+                    <button class="primary-action" type="button" id="postStoryButton">
+                        Post Story
+                    </button>
+
+                    <button class="secondary-action" type="button" id="saveDraftButton">
+                        Save Draft
+                    </button>
+
+                    <div class="visibility-control">
+                        <button class="visibility-main-button" type="button" id="visibilityToggleButton">
+                            <span id="visibilityButtonText">Private</span>
+                            <span>▾</span>
+                        </button>
+
+                        <div class="visibility-options" id="visibilityOptions" hidden>
+                            <button type="button" data-visibility="private">
+                                <strong>Private</strong>
+                                <span>Only you can read it.</span>
+                            </button>
+
+                            <button type="button" data-visibility="friends">
+                                <strong>Friends</strong>
+                                <span>Only your friends can read it.</span>
+                            </button>
+
+                            <button type="button" data-visibility="public">
+                                <strong>Public</strong>
+                                <span>Everyone can read it.</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="secondary-action" type="button" id="clearFormButton">
+                        Clear Form
+                    </button>
+
+                    <button class="secondary-action" type="button" id="backMainButton">
+                        Back
+                    </button>
+                </div>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <script src="write.js"></script>
+</body>
+</html>

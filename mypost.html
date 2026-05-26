@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>My Posts - Live Chat Gazette</title>
+    <link rel="stylesheet" href="mypost.css">
+</head>
+<body class="mypost-page">
+
+    <main class="mypost-shell">
+
+        <header class="mypost-top-bar">
+            <div class="top-left">
+                <strong>LIVE CHAT GAZETTE</strong>
+                <span>Personal writing archive</span>
+            </div>
+
+            <div class="top-right">
+                <button class="plain-button" type="button" id="backMainButton">
+                    Back to Main
+                </button>
+
+                <button class="burgundy-button small" type="button" id="newPostTopButton">
+                    New Post
+                </button>
+            </div>
+        </header>
+
+        <section class="mypost-paper">
+
+            <header class="mypost-header">
+                <p>PRIVATE DESK ARCHIVE</p>
+                <h1 id="mypostTitle">MY POSTS</h1>
+
+                <div class="mypost-meta">
+                    <span id="todayText">TODAY</span>
+                    <span id="ownerText">Owner: Guest</span>
+                    <span>Member Edition</span>
+                </div>
+            </header>
+
+            <section class="mypost-layout">
+
+                <section class="mypost-main">
+
+                    <section class="introduction-section">
+                        <div class="section-title">INTRODUCTION</div>
+
+                        <article class="introduction-card" id="introductionCard">
+                            <section class="introduction-text">
+                                <div class="intro-label">INTRODUCTION</div>
+
+                                <h2 id="introTitle">
+                                    나를 소개하는 공간
+                                </h2>
+
+                                <p id="introDescription">
+                                    여기를 눌러 post를 꾸미고 나를 소개해주세요.
+                                </p>
+
+                                <textarea
+                                    id="introInput"
+                                    class="intro-input"
+                                    maxlength="500"
+                                    placeholder="나를 소개하는 짧은 문장을 적어보세요."
+                                    hidden
+                                ></textarea>
+
+                                <div class="intro-actions">
+                                    <button class="burgundy-button" type="button" id="editIntroButton">
+                                        Edit Introduction
+                                    </button>
+
+                                    <button class="plain-button" type="button" id="saveIntroButton" hidden>
+                                        Save
+                                    </button>
+                                </div>
+                            </section>
+
+                            <aside class="introduction-photo-column">
+
+                                <div class="intro-photo-frame" id="introPhotoFrame">
+                                    <button class="intro-photo-arrow left" type="button" id="introPhotoPrevButton">‹</button>
+
+                                    <span id="introPhotoEmptyText">INTRO PHOTO</span>
+                                    <img id="introPhotoImage" alt="" hidden>
+
+                                    <button class="intro-photo-arrow right" type="button" id="introPhotoNextButton">›</button>
+                                </div>
+
+                                <div class="intro-photo-action-row" id="introPhotoActionRow" hidden>
+                                    <div class="intro-photo-buttons">
+                                        <button class="intro-photo-button" type="button" id="introPhotoButton">
+                                            img
+                                        </button>
+
+                                        <button class="intro-photo-delete-button" type="button" id="introPhotoDeleteButton" hidden>
+                                            Delete
+                                        </button>
+                                </div>
+
+                                <span id="introPhotoCount">0 / 3</span>
+                                </div>
+
+                                <input type="file" id="introPhotoInput" accept="image/*" multiple hidden>
+
+                            </aside>
+                        </article>
+                    </section>
+
+                    <section class="recent-posts-section">
+                        <div class="section-title">RECENT POSTS</div>
+
+                        <div class="post-grid" id="postGrid">
+                            <article class="post-mini-card is-empty">
+                                <h3>No saved stories yet</h3>
+                                <p>작성한 게시물이 생기면 이곳에 표시됩니다.</p>
+                                <span>Archive · Ready</span>
+                            </article>
+                        </div>
+                    </section>
+
+                </section>
+
+                <aside class="mypost-sidebar">
+
+                    <section class="side-box public-note-box">
+                        <div class="public-note-header">
+                            <div class="section-title">PUBLIC NOTE</div>
+
+                            <button class="public-note-mode-button" type="button" id="publicNoteModeButton">
+                                Writing Notes
+                            </button>
+                        </div>
+
+                        <div class="public-note-paper" id="publicNoteDisplay">
+                            아직 공개 노트가 없습니다.
+                        </div>
+
+                        <textarea
+                            id="publicNoteInput"
+                            class="public-note-input"
+                            maxlength="700"
+                            placeholder="모두가 볼 수 있는 짧은 노트를 적어보세요."
+                            hidden
+                        ></textarea>
+
+                        <div class="note-count" id="publicNoteCount">0 / 700</div>
+                    </section>
+
+                    <section class="side-box">
+                        <div class="section-title">NEW THOUGHT?</div>
+
+                        <p class="side-description">
+                            Start writing your next story from your private desk.
+                        </p>
+
+                        <button class="burgundy-button full" type="button" id="newPostButton">
+                            + New Post
+                        </button>
+                    </section>
+
+                </aside>
+
+            </section>
+
+            <footer class="mypost-footer">
+                LIVE CHAT GAZETTE · YOUR WORDS. YOUR ARCHIVE.
+            </footer>
+
+        </section>
+
+    </main>
+
+    <section class="full-post-modal" id="fullPostModal" hidden>
+        <div class="modal-backdrop" id="fullPostBackdrop"></div>
+
+        <article class="full-post-window">
+
+            <header class="full-post-header">
+                <div class="full-post-header-center">
+                    <p>FULL POST / FULL STORY</p>
+                    <h2>LIVE CHAT GAZETTE</h2>
+                </div>
+
+                <button class="full-post-close" type="button" id="fullPostCloseButton">
+                    Close
+                </button>
+            </header>
+
+            <section class="full-post-meta-line">
+                <span id="fullPostDate">TODAY</span>
+                <span id="fullPostWriter">Written by: Guest</span>
+                <span id="fullPostVisibility">Visibility: Private</span>
+            </section>
+
+            <section class="full-post-content">
+
+                <section class="full-post-left">
+
+                    <section class="full-view-section">
+                        <div class="full-section-label">1. MAIN HEADLINE</div>
+                        <h1 id="fullPostTitle">아직 대표 게시물이 없습니다</h1>
+                    </section>
+
+                    <section class="full-view-section">
+                        <div class="full-section-label">2. SUB-HEADLINE / DESCRIPTION</div>
+                        <p class="full-post-description" id="fullPostDescription">
+                            작성된 부가설명이 없습니다.
+                        </p>
+                    </section>
+
+                    <section class="full-view-section article-body-view">
+                        <div class="full-section-label">3. ARTICLE BODY</div>
+                        <div class="full-post-body" id="fullPostBody">
+                            작성된 본문이 없습니다.
+                        </div>
+                    </section>
+
+                </section>
+
+                <aside class="full-post-right">
+
+                    <section class="full-photo-section">
+                        <div class="full-section-label">5. FEATURE PHOTO</div>
+
+                        <div class="full-photo-frame feature-frame">
+                            <button class="full-photo-arrow left" type="button" id="featurePrevButton">‹</button>
+                            <span id="featureEmptyText">FEATURE PHOTO</span>
+                            <img id="featureImage" alt="" hidden>
+                            <button class="full-photo-arrow right" type="button" id="featureNextButton">›</button>
+                        </div>
+
+                        <div class="full-photo-count" id="featurePhotoCount">0 / 0</div>
+                    </section>
+
+                    <section class="full-photo-section">
+                        <div class="full-section-label">6. SECONDARY PHOTO</div>
+
+                        <div class="full-photo-frame secondary-frame">
+                            <button class="full-photo-arrow left" type="button" id="secondaryPrevButton">‹</button>
+                            <span id="secondaryEmptyText">SECONDARY PHOTO</span>
+                            <img id="secondaryImage" alt="" hidden>
+                            <button class="full-photo-arrow right" type="button" id="secondaryNextButton">›</button>
+                        </div>
+
+                        <div class="full-photo-count secondary-count" id="secondaryPhotoCount">0 / 0</div>
+                    </section>
+
+                </aside>
+
+            </section>
+
+            <section class="full-note-section">
+                <div class="full-section-label">4. NOTES</div>
+
+                <div class="full-post-note" id="fullPostNote">
+                    작성된 노트가 없습니다.
+                </div>
+            </section>
+
+        </article>
+    </section>
+
+    <section class="delete-confirm-modal" id="deleteConfirmModal" hidden>
+        <div class="modal-backdrop" id="deleteConfirmBackdrop"></div>
+
+        <article class="delete-confirm-window">
+            <h3>게시물을 삭제하시겠습니까?</h3>
+            <p>삭제하면 현재 게시물이 사라집니다.</p>
+
+            <div class="delete-confirm-actions">
+                <button class="delete-confirm-yes" type="button" id="deleteYesButton">
+                    예
+                </button>
+
+                <button class="delete-confirm-no" type="button" id="deleteNoButton">
+                    아니오
+                </button>
+            </div>
+        </article>
+    </section>
+
+    <script src="mypost.js"></script>
+</body>
+</html>
