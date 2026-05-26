@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Chat Room</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body class="chat-page">
+
+    <main class="chat-screen">
+        <section class="retro-chat-window">
+
+            <header class="retro-chat-titlebar">
+                <span id="chatTitle">LIVE CHAT - Global Server</span>
+                <button class="retro-chat-close" type="button">X</button>
+            </header>
+
+            <nav class="retro-chat-menubar">
+                <button type="button">File</button>
+                <button type="button">View</button>
+                <button type="button">Users</button>
+                <button type="button">Help</button>
+            </nav>
+
+            <section class="retro-chat-info">
+                <span>Server: <strong id="serverName">Global</strong></span>
+                <span>Nickname: <strong id="nicknameText">Guest</strong></span>
+                <span>Status: <strong class="status-connected">Connected</strong></span>
+                <span>Room: <strong id="roomName">Lobby</strong></span>
+            </section>
+
+            <section class="retro-chat-body">
+
+                <aside class="retro-channel-panel">
+                    <div class="panel-title">Channels</div>
+
+                    <button class="channel-item is-active" type="button" data-room="Lobby"># Lobby</button>
+                    <button class="channel-item" type="button" data-room="Random"># Random</button>
+                    <button class="channel-item" type="button" data-room="Global"># Global</button>
+                    <button class="channel-item" type="button" data-room="Korea"># Korea</button>
+                    <button class="channel-item" type="button" data-room="Study"># Study</button>
+                    <button class="channel-item" type="button" data-room="Gaming"># Gaming</button>
+                </aside>
+
+                <section class="retro-message-panel">
+                    <div class="panel-title">Chat Room</div>
+
+                    <div class="message-list" id="messageList">
+                        <div class="message system-message">
+                            <span class="message-time">12:00</span>
+                            <span class="message-name">System</span>
+                            <span class="message-text">Welcome to Live Chat.</span>
+                        </div>
+
+                        <div class="message">
+                            <span class="message-time">12:01</span>
+                            <span class="message-name">Mika</span>
+                            <span class="message-text">Hello everyone.</span>
+                        </div>
+
+                        <div class="message">
+                            <span class="message-time">12:02</span>
+                            <span class="message-name">Lucas</span>
+                            <span class="message-text">Anyone here from Asia Server?</span>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="retro-user-panel">
+                    <div class="panel-title">Online Users</div>
+
+                    <ul class="user-list" id="userList">
+                        <li class="current-user" id="currentUserItem">Guest</li>
+                        <li>Mika</li>
+                        <li>Lucas</li>
+                        <li>Minji</li>
+                        <li>Froggy</li>
+                        <li>Guest_204</li>
+                    </ul>
+                </aside>
+
+            </section>
+
+            <form class="retro-chat-inputbar" id="chatForm">
+                <div class="chat-input-wrap">
+                    <input
+                        class="chat-input"
+                        type="text"
+                        id="chatInput"
+                        placeholder="Type your message..."
+                        autocomplete="off"
+                    >
+
+                    <button class="chat-attach-button" type="button" id="attachButton">IMG</button>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                </div>
+
+                <button class="chat-send-button" type="submit">Send</button>
+            </form>
+
+            <footer class="retro-chat-statusbar">
+                <span id="statusLeft">Connected</span>
+                <span id="statusCenter">Room: Lobby</span>
+                <span id="statusRight">Users Online: 6</span>
+            </footer>
+
+        </section>
+    </main>
+
+    <script src="chat.js"></script>
+</body>
+</html>

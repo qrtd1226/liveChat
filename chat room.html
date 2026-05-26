@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Chat Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="dashboard-page">
+
+    <main class="dashboard-screen">
+
+        <section class="retro-dashboard-window">
+
+            <header class="dashboard-titlebar">
+                <span id="dashboardTitle">LIVE CHAT DESKTOP</span>
+                <button class="dashboard-close-button" type="button">X</button>
+            </header>
+
+            <section class="dashboard-info-bar">
+                <span>Nickname: <strong id="dashboardNickname">Guest</strong></span>
+                <span>Server: <strong id="dashboardServer">Global Server</strong></span>
+                <span>Status: <strong class="status-connected">Online</strong></span>
+            </section>
+
+            <section class="dashboard-body">
+
+                <div class="dashboard-welcome-panel">
+                    <p class="dashboard-label">WELCOME BACK</p>
+                    <h1 id="welcomeText">Hello, Guest</h1>
+                    <p class="dashboard-desc">
+                        Choose where you want to go.
+                    </p>
+                </div>
+
+                <section class="dashboard-menu-grid">
+
+                    <button class="dashboard-card" type="button" data-url="chat.html">
+                        <span class="card-icon">CHAT</span>
+                        <span class="card-title">Chat Room</span>
+                        <span class="card-desc">Join the public room</span>
+                    </button>
+
+                    <button class="dashboard-card" type="button" data-url="friends.html">
+                        <span class="card-icon">FRND</span>
+                        <span class="card-title">Friends</span>
+                        <span class="card-desc">Add and manage friends</span>
+                    </button>
+
+                    <button class="dashboard-card" type="button" data-url="dm.html">
+                        <span class="card-icon">DM</span>
+                        <span class="card-title">Direct Message</span>
+                        <span class="card-desc">Private conversations</span>
+                    </button>
+
+                    <button class="dashboard-card" type="button" data-url="myroom.html">
+                        <span class="card-icon">ROOM</span>
+                        <span class="card-title">My Room</span>
+                        <span class="card-desc">Decorate your space</span>
+                    </button>
+
+                </section>
+
+                <section class="dashboard-mini-panel">
+                    <div class="mini-panel-title">Today</div>
+
+                    <div class="mini-status-row">
+                        <span>Current Room</span>
+                        <strong>Lobby</strong>
+                    </div>
+
+                    <div class="mini-status-row">
+                        <span>Online Users</span>
+                        <strong>6</strong>
+                    </div>
+
+                    <div class="mini-status-row">
+                        <span>Unread DM</span>
+                        <strong>0</strong>
+                    </div>
+                </section>
+
+            </section>
+
+            <footer class="dashboard-statusbar">
+                <span>Connected</span>
+                <span id="dashboardRoomStatus">Room: Lobby</span>
+                <span>Live Chat Desktop v0.1</span>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Live Chat</title>
+    <link rel="stylesheet" href="livemain.css">
+</head>
+<body class="login-page">
+
+    <main class="login-screen">
+        <section class="retro-login-window">
+            <div class="retro-login-titlebar">
+                <span>Sign in to Live Chat</span>
+                <button class="retro-close-button" type="button">X</button>
+            </div>
+
+            <form class="retro-login-form" id="loginForm">
+                <label class="retro-label" for="nickname">Nickname</label>
+                <input
+                    class="retro-input"
+                    type="text"
+                    id="nickname"
+                    name="nickname"
+                    placeholder="Your nickname"
+                    autocomplete="nickname"
+                >
+
+                <label class="retro-label" for="password">Password</label>
+                <input
+                    class="retro-input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Your password"
+                    autocomplete="current-password"
+                >
+
+                <label class="retro-label" for="server">Server</label>
+                <select class="retro-input" id="server" name="server">
+                    <option value="">Select server</option>
+                    <option value="global">Global Server</option>
+                    <option value="asia">Asia Server</option>
+                    <option value="europe">Europe Server</option>
+                    <option value="america">America Server</option>
+                </select>
+
+                <p class="retro-error-message" id="loginError"></p>
+
+                <button class="retro-login-button" type="submit">Login</button>
+            </form>
+
+            <div class="retro-login-bottom">
+                <span>Not registered?</span>
+                <button class="retro-link-button" type="button">Create account</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="live.js"></script>
+</body>
+</html>
