@@ -1,0 +1,490 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.main {
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+
+    background-image:
+        /* 어두운 격자선 */
+        linear-gradient(rgba(225, 218, 218, 0.28) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 228, 228, 0.28) 1px, transparent 1px),
+
+        /* 타일 안쪽 밝은 면 */
+        linear-gradient(135deg, rgba(13, 13, 14, 0.86) 0 25%, transparent 25% 100%),
+
+        /* 타일 안쪽 어두운 면 */
+        linear-gradient(315deg, rgba(8, 8, 8, 0.18) 0 25%, transparent 25% 100%);
+
+    background-size: 26px 26px;
+}
+
+.headline {
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    text-align: center;   
+    justify-content: center;
+    color: white;
+}
+
+
+.pixel-earth {
+    --px: 10px;
+
+    width: calc(var(--px) * 32);
+    height: calc(var(--px) * 32);
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -55%) scale(1);
+
+    display: grid;
+    grid-template-columns: repeat(32, var(--px));
+    grid-template-rows: repeat(32, var(--px));
+
+    z-index: 10;
+    cursor: pointer;
+    image-rendering: pixelated;
+
+    filter:
+        brightness(1)
+        drop-shadow(0 0 10px rgba(30, 110, 255, 0.35));
+
+    transition:
+        transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.32s ease;
+}
+
+/* 커서를 올리면 살짝 커지는 효과 */
+.pixel-earth:hover {
+    transform: translate(-50%, -55%) scale(1.08);
+
+    filter:
+        brightness(1.15)
+        drop-shadow(0 0 16px rgba(70, 150, 255, 0.55));
+}
+
+.pixel {
+    width: var(--px);
+    height: var(--px);
+}
+
+.empty {
+    background: transparent;
+}
+
+.black {
+    background: #050505;
+}
+
+/* 바다 계열 */
+.ocean {
+    background: #1f6fff;
+}
+
+.ocean-dark {
+    background: #1554d8;
+}
+
+.ocean-deep {
+    background: #0d43b8;
+}
+
+.ocean-light {
+    background: #4b8cff;
+}
+
+/* 땅 계열 */
+.land {
+    background: #35b94b;
+}
+
+.land-dark {
+    background: #14863a;
+}
+
+.land-deep {
+    background: #0d6d30;
+}
+
+.land-light {
+    background: #6fd34d;
+}
+
+.cloud {
+    background: #ffffff;
+}
+
+/* 지구 안으로 들어가는 애니메이션*/
+.pixel-earth.is-entering {
+    transform: translate(-50%, -80%) scale(18);
+
+    filter:
+        brightness(1.35)
+        blur(1px)
+        drop-shadow(0 0 40px rgba(70, 150, 255, 0.9));
+
+    transition:
+        transform 0.9s cubic-bezier(0.75, 0, 0.25, 1),
+        filter 0.9s ease;
+
+    pointer-events: none;
+}
+
+
+/*로딩화면*/
+.retro-loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0b45c9;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.retro-loading-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.retro-error-window {
+    position: absolute;
+    width: 350px;
+    background: #80807e;
+    border: 2px solid #8f8f8f;
+    box-shadow:
+        0 0 0 2px #d8d8d8 inset,
+        2px 2px 0 #5b5b5b;
+    font-family: "MS Sans Serif", "Pixelify Sans", sans-serif;
+    image-rendering: pixelated;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.retro-error-window.is-show {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+
+.retro-error-titlebar {
+    height: 28px;
+    background: #b9b9b9;
+    border-bottom: 2px solid #8a8a8a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px 0 8px;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #111;
+}
+
+.retro-error-title {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.retro-error-close {
+    width: 18px;
+    height: 18px;
+    background: #e03a3a;
+    border: 1px solid #7a0000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 1px 1px 0 #7a0000;
+}
+
+.retro-error-body {
+    padding: 18px 18px 16px;
+    text-align: center;
+    color: #222;
+}
+
+.retro-error-main {
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.retro-error-sub {
+    font-size: 17px;
+    margin-bottom: 14px;
+}
+
+.retro-error-button-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.retro-error-button {
+    min-width: 110px;
+    height: 36px;
+    background: #959188;
+    border: 2px solid #8f8f8f;
+    box-shadow:
+        1px 1px 0 #ffffff inset,
+        -1px -1px 0 #7d6b49 inset;
+    font-size: 20px;
+    font-weight: 500;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.retro-frog-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.retro-frog-image {
+    display: block;
+    width: 120px;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+/*로딩화면 글귀*/
+.retro-loading-bg-text {
+    position: absolute;
+
+    right: 80px;
+    bottom: 80px;
+
+    z-index: 1;
+
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "MS Sans Serif", "Pixelify Sans", sans-serif;
+
+    line-height: 1.45;
+    text-align: left;
+
+    text-shadow:
+        2px 2px 0 #000000,
+        4px 4px 0 rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.retro-loading-overlay.is-active .retro-loading-bg-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* 로그인버튼 보류 
+.loginbox {
+    min-height: 110vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginbtn {
+    border: none;
+    background-color: #f1f3f4;
+
+    padding: 7px 12px;
+    border-radius: 999px;
+
+    font-size: 20px;
+    color: #202124;
+    white-space: nowrap;
+
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+}
+
+.loginbtn:hover {
+    background-color: #e8eaed;
+}
+    */
+
+/*earth.html*/
+.login-page {
+    min-height: 100vh;
+    background: #078176;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "MS Sans Serif", "Pixelify Sans", Arial, sans-serif;
+}
+
+.login-screen {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.retro-login-window {
+    width: 360px;
+    background: #80807e;
+
+    border: 2px solid #ffffff;
+    box-shadow:
+        2px 2px 0 #000000,
+        inset -2px -2px 0 #808080,
+        inset 2px 2px 0 #dfdfdf;
+}
+
+.retro-login-titlebar {
+    height: 26px;
+    background: #b9b9b9;
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 4px 0 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.retro-close-button {
+    width: 18px;
+    height: 18px;
+
+    border: 1px solid #7a0000;
+    background: #e03a3a;
+
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 1px 1px 0 #7a0000,
+        inset -1px -1px 0 #7a0000;
+}
+
+.retro-login-form {
+    padding: 18px 18px 10px;
+}
+
+.retro-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #111111;
+    font-size: 13px;
+}
+
+.retro-input {
+    width: 100%;
+    height: 28px;
+
+    margin-bottom: 12px;
+    padding: 3px 6px;
+
+    border: 2px solid #808080;
+    background: #ffffff;
+
+    color: #111111;
+    font-size: 13px;
+    font-family: inherit;
+
+    box-shadow:
+        inset 1px 1px 0 #404040,
+        inset -1px -1px 0 #ffffff;
+}
+
+.retro-input:focus {
+    outline: 1px dotted #000000;
+    outline-offset: -4px;
+}
+
+.retro-error-message {
+    min-height: 18px;
+
+    margin: 0 0 10px;
+
+    color: #b00000;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.retro-login-button {
+    width: 100%;
+    height: 30px;
+
+    border: 2px solid #808080;
+    background: #c6c6c6;
+
+    color: #111111;
+    font-size: 13px;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 1px 1px 0 #ffffff,
+        inset -1px -1px 0 #404040;
+}
+
+.retro-login-button:active {
+    box-shadow:
+        inset 1px 1px 0 #404040,
+        inset -1px -1px 0 #ffffff;
+}
+
+.retro-login-bottom {
+    padding: 8px 18px 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    font-size: 12px;
+}
+
+.retro-link-button {
+    border: none;
+    background: transparent;
+
+    color: #000080;
+    font-size: 12px;
+    font-family: inherit;
+    text-decoration: underline;
+
+    cursor: pointer;
+}

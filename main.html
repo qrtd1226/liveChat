@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Chat Gazette</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="gazette-page">
+
+    <main class="gazette-shell">
+
+        <header class="top-bar">
+            <div class="top-left">
+                <strong id="dashboardTitle">LIVE CHAT GAZETTE</strong>
+                <span>The world's conversations, published live.</span>
+            </div>
+
+            <div class="top-right">
+                <span id="dashboardNickname">Guest</span>
+                <button class="burgundy-button small" type="button" id="openChatButton">
+                    Chat Room
+                </button>
+            </div>
+        </header>
+
+        <section class="newspaper">
+
+            <header class="newspaper-header">
+                <p class="paper-label">RETRO ONLINE BOARD</p>
+                <h1>LIVE CHAT GAZETTE</h1>
+
+                <div class="paper-meta">
+                    <span id="todayText">TODAY</span>
+                    <span>EST. 2025</span>
+                    <span id="dashboardServer">Global Server</span>
+                </div>
+            </header>
+
+            <section class="lead-section">
+                <article class="lead-post">
+                    <div class="article-tag">MY LEAD STORY</div>
+
+                    <h2 id="leadTitle">아직 대표 게시물이 없습니다</h2>
+
+                    <p class="lead-description" id="leadDescription">
+                        개인 데스크에서 작성한 글이 나중에 이 영역에 신문 메인기사처럼 표시됩니다.
+                    </p>
+
+                    <div class="article-meta" id="leadMeta">
+                        System · Ready
+                    </div>
+
+                    <div class="lead-actions">
+                        <button class="burgundy-button" type="button" id="readFullPostButton">
+                          Read Full Post →
+                        </button>
+
+                        <button class="delete-post-button" type="button" id="deleteLeadPostButton" hidden>
+                            Delete Post
+                        </button>
+                    </div>
+                </article>
+
+                <aside class="lead-image-box">
+                    <div class="image-placeholder">IMAGE AREA</div>
+                </aside>
+            </section>
+
+            <section class="write-section">
+                <div class="section-title">PRIVATE DESK</div>
+
+                <div class="private-desk">
+                    <div>
+                        <strong>Write quietly. Share only when you want.</strong>
+                        <p>
+                            먼저 나만의 공간에 글을 남기고, 공개하고 싶은 글만 신문에 올릴 수 있습니다.
+                        </p>
+                    </div>
+
+                    <button class="burgundy-button" type="button" id="openWriteButton">
+                        Write Privately
+                    </button>
+                </div>
+            </section>
+
+            <section class="highlights-row">
+
+                <section class="highlights-column">
+                    <div class="section-title">TODAY'S HIGHLIGHTS</div>
+
+                    <div class="highlight-grid">
+
+                        <article class="card-article">
+                            <div class="card-top">
+                                <div class="article-tag">FRIEND</div>
+                                <button class="more-button" type="button" data-category="friend">
+                                    More →
+                                </button>
+                            </div>
+
+                            <h3>Hidden Villages Worth the Detour</h3>
+                            <p>친구가 올린 여행 기록이 여기에 표시됩니다.</p>
+                            <div class="article-meta">Roaming Soul · 7h ago</div>
+                        </article>
+
+                        <article class="card-article">
+                            <div class="card-top">
+                                <div class="article-tag">LOCAL</div>
+                                <button class="more-button" type="button" data-category="local">
+                                    More →
+                                </button>
+                            </div>
+
+                            <h3>Morning Notes From Seoul</h3>
+                            <p>다른 사용자의 짧은 동네 소식이 들어가는 영역입니다.</p>
+                            <div class="article-meta">Minji · 5h ago</div>
+                        </article>
+
+                        <article class="card-article">
+                            <div class="card-top">
+                                <div class="article-tag">CHAT</div>
+                                <button class="more-button" type="button" data-category="chat">
+                                    More →
+                                </button>
+                            </div>
+
+                            <h3>Chat Room Is Still Open</h3>
+                            <p>채팅은 메인 기능이 아니라 부가기능으로 유지됩니다.</p>
+                            <div class="article-meta">System · 3h ago</div>
+                        </article>
+
+                    </div>
+                </section>
+
+                <aside class="quick-menu-column">
+                    <div class="section-title">QUICK MENU</div>
+
+                    <button class="side-button primary" type="button" id="sideChatButton">
+                        Chat Room
+                    </button>
+
+                    <button class="side-button" type="button" onclick="window.location.href='mypost.html'">
+                        My Posts
+                    </button>
+
+                    <button class="side-button" type="button">
+                        Friends
+                    </button>
+
+                    <div class="notice-box">
+                        <strong>NOTICE</strong>
+                        <p>
+                            나중에 이 메인 화면에 지도, 위치 기반 게시물, 이미지 업로드 기능을 붙일 수 있습니다.
+                        </p>
+                    </div>
+                </aside>
+
+            </section>
+
+            <section class="more-post-panel" id="morePostPanel" hidden>
+                <div class="more-panel-header">
+                    <h3 id="morePanelTitle">More Posts</h3>
+                    <button class="more-close-button" type="button" id="moreCloseButton">
+                        Close
+                    </button>
+                </div>
+
+                <div class="more-post-list" id="morePostList"></div>
+            </section>
+
+        </section>
+
+    </main>
+
+    <section class="full-post-modal" id="fullPostModal" hidden>
+        <div class="full-post-backdrop" id="fullPostBackdrop"></div>
+
+        <article class="full-post-window">
+
+            <header class="full-post-header">
+                <div class="full-post-header-center">
+                    <p>FULL POST / FULL STORY</p>
+                    <h2>LIVE CHAT GAZETTE</h2>
+                </div>
+
+                <button class="full-post-close" type="button" id="fullPostCloseButton">
+                    Close
+                </button>
+            </header>
+
+            <section class="full-post-meta-line">
+                <span id="fullPostDate">TODAY</span>
+                <span id="fullPostWriter">Written by: Guest</span>
+                <span id="fullPostVisibility">Visibility: Private</span>
+            </section>
+
+            <section class="full-post-content">
+
+                <section class="full-post-left">
+
+                    <section class="full-view-section">
+                        <div class="full-section-label">1. MAIN HEADLINE</div>
+                        <h1 id="fullPostTitle">아직 대표 게시물이 없습니다</h1>
+                    </section>
+
+                    <section class="full-view-section">
+                        <div class="full-section-label">2. SUB-HEADLINE / DESCRIPTION</div>
+                        <p class="full-post-description" id="fullPostDescription">
+                            작성된 부가설명이 없습니다.
+                        </p>
+                    </section>
+
+                    <section class="full-view-section article-body-view">
+                        <div class="full-section-label">3. ARTICLE BODY</div>
+                        <div class="full-post-body" id="fullPostBody">
+                            작성된 본문이 없습니다.
+                        </div>
+                    </section>
+
+                </section>
+
+                <aside class="full-post-right">
+
+                    <section class="full-photo-section feature">
+                        <div class="full-section-label">5. FEATURE PHOTO</div>
+
+                        <div class="full-photo-frame feature-frame" id="fullFeaturePhotoFrame">
+                            <button class="full-photo-arrow left" type="button" id="fullFeaturePrevButton">‹</button>
+                            <span id="fullFeatureEmptyText">FEATURE PHOTO</span>
+                            <img id="fullFeatureImage" alt="" hidden>
+                            <button class="full-photo-arrow right" type="button" id="fullFeatureNextButton">›</button>
+                        </div>
+
+                        <div class="full-photo-count" id="fullFeaturePhotoCount">0 / 0</div>
+                    </section>
+
+                    <section class="full-photo-section secondary">
+                        <div class="full-section-label">6. SECONDARY PHOTO</div>
+
+                        <div class="full-photo-frame secondary-frame" id="fullSecondaryPhotoFrame">
+                            <button class="full-photo-arrow left" type="button" id="fullSecondaryPrevButton">‹</button>
+                            <span id="fullSecondaryEmptyText">SECONDARY PHOTO</span>
+                            <img id="fullSecondaryImage" alt="" hidden>
+                            <button class="full-photo-arrow right" type="button" id="fullSecondaryNextButton">›</button>
+                        </div>
+
+                        <div class="full-photo-count" id="fullSecondaryPhotoCount">0 / 0</div>
+                    </section>
+
+                </aside>
+
+            </section>
+
+            <section class="full-note-section">
+                <div class="full-section-label">4. NOTES</div>
+
+                <div class="full-post-note" id="fullPostNote">
+                    작성된 노트가 없습니다.
+                </div>
+            </section>
+
+        </article>
+    </section>
+
+    <section class="my-posts-modal" id="myPostsModal" hidden>
+    <div class="my-posts-backdrop" id="myPostsBackdrop"></div>
+
+    <article class="my-posts-window">
+
+        <header class="my-posts-header">
+            <div class="my-posts-title-area">
+                <p>LIVE CHAT GAZETTE</p>
+                <h2>MY POSTS</h2>
+                <span>A personal archive of your stories, thoughts & conversations.</span>
+            </div>
+
+            <button class="my-posts-close" type="button" id="myPostsCloseButton">
+                Close
+            </button>
+        </header>
+
+        <section class="my-posts-meta">
+            <span id="myPostsDate">TODAY</span>
+            <span id="myPostsOwner">Owner: Guest</span>
+            <span>Member Edition</span>
+        </section>
+
+        <section class="my-posts-layout">
+
+            <section class="my-posts-main">
+
+                <section class="my-posts-featured">
+                    <div class="my-posts-section-title">FEATURED POST</div>
+
+                    <article class="my-featured-card">
+                        <div class="my-featured-text">
+                            <h3 id="myFeaturedTitle">아직 작성한 게시물이 없습니다</h3>
+
+                            <p id="myFeaturedDescription">
+                                Post Story를 눌러 대표 게시물을 만들면 이곳에 표시됩니다.
+                            </p>
+
+                            <div class="my-featured-meta" id="myFeaturedMeta">
+                                System · Empty
+                            </div>
+
+                            <div class="my-featured-actions">
+                                <button class="my-post-action primary" type="button" id="myPostsReadButton">
+                                    Read Post
+                                </button>
+
+                                <button class="my-post-action danger" type="button" id="myPostsDeleteButton">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="my-featured-image" id="myFeaturedImageBox">
+                            IMAGE AREA
+                        </div>
+                    </article>
+                </section>
+
+                <section class="my-posts-grid-section">
+                    <div class="my-posts-section-title">RECENT POSTS</div>
+
+                    <div class="my-posts-grid" id="myPostsGrid">
+                        <article class="my-post-mini-card is-empty">
+                            <h4>No saved stories yet</h4>
+                            <p>작성한 게시물이 생기면 이곳에 표시됩니다.</p>
+                            <span>Archive · Ready</span>
+                        </article>
+                    </div>
+                </section>
+
+            </section>
+
+            <aside class="my-posts-sidebar">
+
+                <section class="my-side-box">
+                    <div class="my-posts-section-title">FILTER POSTS</div>
+
+                    <button class="my-filter-button active" type="button">All Posts</button>
+                    <button class="my-filter-button" type="button">Private</button>
+                    <button class="my-filter-button" type="button">Friends</button>
+                    <button class="my-filter-button" type="button">Public</button>
+                    <button class="my-filter-button" type="button">Drafts</button>
+                </section>
+
+                <section class="my-side-box">
+                    <div class="my-posts-section-title">SEARCH</div>
+
+                    <div class="my-search-box">
+                        <input type="text" placeholder="Search your posts..." id="myPostsSearchInput">
+                        <span>⌕</span>
+                    </div>
+                </section>
+
+                <section class="my-side-box">
+                    <div class="my-posts-section-title">NEW THOUGHT?</div>
+
+                    <p class="my-side-description">
+                        Start writing your next post from your private desk.
+                    </p>
+
+                    <button class="my-new-post-button" type="button" id="myPostsNewPostButton">
+                        + New Post
+                    </button>
+                </section>
+
+            </aside>
+
+        </section>
+
+        <footer class="my-posts-footer">
+            LIVE CHAT GAZETTE · YOUR WORDS. YOUR ARCHIVE.
+        </footer>
+
+    </article>
+</section>
+
+<section class="delete-confirm-modal" id="deleteConfirmModal" hidden>
+    <div class="delete-confirm-backdrop" id="deleteConfirmBackdrop"></div>
+
+    <article class="delete-confirm-window">
+        <h3>게시물을 삭제하시겠습니까?</h3>
+        <p>삭제하면 현재 대표 게시물과 My Posts의 게시물이 사라집니다.</p>
+
+        <div class="delete-confirm-actions">
+            <button class="delete-confirm-yes" type="button" id="deleteConfirmYesButton">
+                예
+            </button>
+
+            <button class="delete-confirm-no" type="button" id="deleteConfirmNoButton">
+                아니오
+            </button>
+        </div>
+    </article>
+</section>
+
+    <script src="main.js"></script>
+</body>
+</html>
